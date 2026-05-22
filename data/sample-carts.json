@@ -1,0 +1,54 @@
+{
+  "carts": [
+    {
+      "label": "Worked example (bundle + free shipping)",
+      "cart": {
+        "items": [
+          { "id": "m1", "name": "Wireless Mouse", "category": "accessory", "unitPrice": 25.0, "quantity": 2 },
+          { "id": "l1", "name": "Laptop", "category": "device", "unitPrice": 800.0, "quantity": 1 }
+        ],
+        "customerTier": "none"
+      }
+    },
+    {
+      "label": "Scenario A (bulk qty=10, gold)",
+      "cart": {
+        "items": [
+          { "id": "p1", "name": "USB Cable", "category": "accessory", "unitPrice": 12.0, "quantity": 10 }
+        ],
+        "customerTier": "gold"
+      }
+    },
+    {
+      "label": "Scenario B (SAVE20 cap)",
+      "cart": {
+        "items": [
+          { "id": "tv", "name": "OLED TV", "category": "device", "unitPrice": 1200.0, "quantity": 1 }
+        ],
+        "customerTier": "none",
+        "couponCode": "SAVE20"
+      }
+    },
+    {
+      "label": "Scenario C (bundle + silver + FREESHIP)",
+      "cart": {
+        "items": [
+          { "id": "ph", "name": "Phone", "category": "device", "unitPrice": 40.0, "quantity": 1 },
+          { "id": "cs", "name": "Case", "category": "accessory", "unitPrice": 10.0, "quantity": 1 }
+        ],
+        "customerTier": "silver",
+        "couponCode": "FREESHIP"
+      }
+    },
+    {
+      "label": "Scenario D (unknown coupon warning)",
+      "cart": {
+        "items": [
+          { "id": "nb", "name": "Notebook", "category": "accessory", "unitPrice": 5.0, "quantity": 3 }
+        ],
+        "customerTier": "none",
+        "couponCode": "BOGUS50"
+      }
+    }
+  ]
+}
