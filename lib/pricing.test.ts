@@ -38,3 +38,57 @@ describe("calculatePrice", () => {
   // TODO: add tests for bulk discount, loyalty tiers, unknown coupon warning,
   // FREESHIP, the clamp-to-zero case, and anything else you think matters.
 });
+
+it("applies bulk discount at quantity 10", () => {
+  const cart: Cart = {
+    items: [
+      {
+        id: "usb",
+        name: "USB Cable",
+        category: "accessory",
+        unitPrice: 12,
+        quantity: 10,
+      },
+    ],
+    customerTier: "gold",
+  };
+
+  const r = calculatePrice(cart);
+
+  expect(r.subtotalAfterDiscounts).toBeCloseTo(
+    102.6,
+    2
+  );
+
+  expect(r.total).toBeCloseTo(
+    111.32,
+    2
+  );
+});
+
+it("does not apply bulk discount below quantity 10", () => {
+  const cart: Cart = {
+    items: [
+      {
+        id: "usb",
+        name: "USB Cable",
+        category: "accessory",
+        unitPrice: 12,
+        quantity: 9,
+      },
+    ],
+    customerTier: "none",
+  };
+
+  const r = calculatePrice(cart);
+
+  expect(r.itemSubtotal).toBeCloseTo(
+    108,
+    2
+  );
+
+  expect(r.subtotalAfterDiscounts).toBeCloseTo(
+    108,
+    2
+  );
+});
